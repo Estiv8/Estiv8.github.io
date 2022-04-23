@@ -1,13 +1,15 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="/favicon-16x16.png?v=2.6.2" type="image/png" sizes="16x16"><link rel="icon" href="/favicon-32x32.png?v=2.6.2" type="image/png" sizes="32x32"><meta name="description" content="项目介绍       首先，这是第一次做一个比较完整的项目，项目以生活中最常使用到的 Web2.0 网络社交平台为灵感，从设计表、编码、到项目部署，做的比较慢和详细，对于项目中的技术问题，特别是涉及到高性能、高可用的部分会重点记录。后续在研究更大的项目时，希望可以更得心应手，可以迅速抓住重点，解决问题。 Web2.0 应用促进了网络上人与人之间的信息交换和协">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="/favicon-16x16.png?v=2.6.2" type="image/png" sizes="16x16"><link rel="icon" href="/favicon-32x32.png?v=2.6.2" type="image/png" sizes="32x32"><meta name="description" content="首先，这是第一次做一个比较完整的项目，项目以生活中最常使用到的网络社交平台为灵感，从设计表、编码、到项目部署，做的比较慢和详细，对于项目中的技术问题，特别是涉及到高性能、高可用的部分会重点记录。后续在研究更大的项目时，希望可以更得心应手，可以迅速抓住重点，解决问题。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="论坛项目分析（更新中）">
 <meta property="og:url" content="http://example.com/2022/04/11/community-project/index.html">
 <meta property="og:site_name" content="再生">
-<meta property="og:description" content="项目介绍       首先，这是第一次做一个比较完整的项目，项目以生活中最常使用到的 Web2.0 网络社交平台为灵感，从设计表、编码、到项目部署，做的比较慢和详细，对于项目中的技术问题，特别是涉及到高性能、高可用的部分会重点记录。后续在研究更大的项目时，希望可以更得心应手，可以迅速抓住重点，解决问题。 Web2.0 应用促进了网络上人与人之间的信息交换和协">
+<meta property="og:description" content="首先，这是第一次做一个比较完整的项目，项目以生活中最常使用到的网络社交平台为灵感，从设计表、编码、到项目部署，做的比较慢和详细，对于项目中的技术问题，特别是涉及到高性能、高可用的部分会重点记录。后续在研究更大的项目时，希望可以更得心应手，可以迅速抓住重点，解决问题。">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://raw.githubusercontent.com/Estiv8/Images/main/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E6%9E%B6%E6%9E%84.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Estiv8/Images/main/MVC%E6%9E%B6%E6%9E%84.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Estiv8/Images/main/Spring%20MVC%E6%9E%B6%E6%9E%84.png">
 <meta property="article:published_time" content="2022-04-11T11:32:26.000Z">
-<meta property="article:modified_time" content="2022-04-22T15:13:57.967Z">
+<meta property="article:modified_time" content="2022-04-23T13:10:38.178Z">
 <meta property="article:author" content="Estiv8">
 <meta property="article:tag" content="项目">
 <meta property="article:tag" content="Java">
@@ -36,31 +38,138 @@ var CONFIG = {
   sourcePath: {"js":"js","css":"css","images":"images"},
 };
 
-window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.1"></head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner header-inner--height header-inner--bgcolor"><nav class="header-nav header-nav--sticky"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">Home</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">Archives</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/categories/"><span class="header-nav-menu-item__icon"><i class="fas fa-layer-group"></i></span><span class="header-nav-menu-item__text">Categories</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/tags/"><span class="header-nav-menu-item__icon"><i class="fas fa-tags"></i></span><span class="header-nav-menu-item__text">Tags</span></a></div></div><div class="header-nav-search"><span class="header-nav-search__icon"><i class="fas fa-search"></i></span><span class="header-nav-search__text">Search</span></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><h1 class="post-title">论坛项目分析（更新中）</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2022-04-11</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2022-04-22</span></span><span class="post-meta-item post-meta-item--wordcount"><span class="post-meta-item__icon"><i class="far fa-file-word"></i></span><span class="post-meta-item__info">Words</span><span class="post-meta-item__value">454</span></span></div></header><div class="post-body">
+window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.1"></head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner header-inner--height header-inner--bgcolor"><nav class="header-nav header-nav--sticky"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">Home</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">Archives</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/categories/"><span class="header-nav-menu-item__icon"><i class="fas fa-layer-group"></i></span><span class="header-nav-menu-item__text">Categories</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/tags/"><span class="header-nav-menu-item__icon"><i class="fas fa-tags"></i></span><span class="header-nav-menu-item__text">Tags</span></a></div></div><div class="header-nav-search"><span class="header-nav-search__icon"><i class="fas fa-search"></i></span><span class="header-nav-search__text">Search</span></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><h1 class="post-title">论坛项目分析（更新中）</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2022-04-11</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2022-04-23</span></span><span class="post-meta-item post-meta-item--wordcount"><span class="post-meta-item__icon"><i class="far fa-file-word"></i></span><span class="post-meta-item__info">Words</span><span class="post-meta-item__value">1.4k</span></span></div></header><div class="post-body"><p>首先，这是第一次做一个比较完整的项目，项目以生活中最常使用到的网络社交平台为灵感，从设计表、编码、到项目部署，做的比较慢和详细，对于项目中的技术问题，特别是涉及到高性能、高可用的部分会重点记录。后续在研究更大的项目时，希望可以更得心应手，可以迅速抓住重点，解决问题。</p>
+<span id="more"></span>
+
+
         <h2 id="项目介绍"   >
           <a href="#项目介绍" class="heading-link"><i class="fas fa-link"></i></a><a href="#项目介绍" class="headerlink" title="项目介绍"></a>项目介绍</h2>
-      <p>首先，这是第一次做一个比较完整的项目，项目以生活中最常使用到的 Web2.0 网络社交平台为灵感，从设计表、编码、到项目部署，做的比较慢和详细，对于项目中的技术问题，特别是涉及到高性能、高可用的部分会重点记录。后续在研究更大的项目时，希望可以更得心应手，可以迅速抓住重点，解决问题。</p>
-<p>Web2.0 应用促进了网络上人与人之间的信息交换和协作，相比 Web1.0，更以用户为中心。典型的 Web2.0 应用就是各种各样的网络社区。该项目主要参照百度贴吧等流行BBS，实现一个网络论坛的后端功能，包括用户权限管理、发帖、点赞、评论等。</p>
+      <p>该项目主要参照百度贴吧、微博等产品，实现一个网络社区的后端功能，包括用户权限管理、发帖、点赞、评论等。</p>
 <p>项目采用流行的 SpringBoot 框架，整合 Spring、Spring MVC、Mybatis、Spring Security 框架开发， MySQL 数据库以及 Redis、Kafka、Elasticsearch 等中间件完成了权限管理、核心功能、性能、通知、搜索等模块，并部署在云服务器上。</p>
 <p>项目部署架构图：</p>
 <p><img src="https://raw.githubusercontent.com/Estiv8/Images/main/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E6%9E%B6%E6%9E%84.png"></p>
 
         <h2 id="实体设计"   >
           <a href="#实体设计" class="heading-link"><i class="fas fa-link"></i></a><a href="#实体设计" class="headerlink" title="实体设计"></a>实体设计</h2>
-      <p>一个论坛包含的实体应该有：用户、帖子、评论、通知消息（用户之间的私信和系统通知）。</p>
+      <p>一个论坛包含的实体应该有：用户、帖子、评论、消息（用户之间的私信和系统通知）。</p>
 
         <h3 id="用户（user）"   >
           <a href="#用户（user）" class="heading-link"><i class="fas fa-link"></i></a><a href="#用户（user）" class="headerlink" title="用户（user）"></a>用户（user）</h3>
-      <p>用户 id、用户名 username、密码 password、盐 salt、邮箱 email、用户类型 type（0-普通用户; 1-超级管理员; 2-版主）、用户状态 status（0-未激活; 1-已激活）、激活码 activation_code、用户头像 header_url、创建时间 create_time。</p>
+      <ul>
+<li>用户 id</li>
+<li>用户名 username</li>
+<li>密码 password</li>
+<li>盐 salt</li>
+<li>邮箱 email</li>
+<li>用户类型 type（0-普通用户; 1-超级管理员; 2-版主）</li>
+<li>用户状态 status（0-未激活; 1-已激活）</li>
+<li>激活码 activation_code</li>
+<li>用户头像 header_url</li>
+<li>创建时间 create_time</li>
+</ul>
 
         <h3 id="帖子（discuss-post）"   >
           <a href="#帖子（discuss-post）" class="heading-link"><i class="fas fa-link"></i></a><a href="#帖子（discuss-post）" class="headerlink" title="帖子（discuss_post）"></a>帖子（discuss_post）</h3>
-      <p>帖子 id、帖子作者（用户id）user_id、帖子标题 title、帖子内容 content、帖子类型 type（0-普通; 1-置顶）、帖子状态 status（0-正常; 1-精华; 2-拉黑）、创建时间 create_time、评论数 comment_count、热度 score。</p>
+      <ul>
+<li>帖子 id</li>
+<li>帖子作者（用户id）user_id</li>
+<li>帖子标题 title</li>
+<li>帖子内容 content</li>
+<li>帖子类型 type（0-普通; 1-置顶）</li>
+<li>帖子状态 status（0-正常; 1-精华; 2-拉黑）</li>
+<li>创建时间 create_time</li>
+<li>评论数 comment_count</li>
+<li>热度 score</li>
+</ul>
+
+        <h3 id="评论（comment）"   >
+          <a href="#评论（comment）" class="heading-link"><i class="fas fa-link"></i></a><a href="#评论（comment）" class="headerlink" title="评论（comment）"></a>评论（comment）</h3>
+      <ul>
+<li>评论 id</li>
+<li>评论人（用户id） user_id</li>
+<li>评论实体 entity_type（1-给帖子评论；2-给评论评论）</li>
+<li>评论实体id entity_id</li>
+<li>评论回复对象id target_id</li>
+<li>评论内容 content</li>
+<li>评论状态 status</li>
+<li>创建时间 create_time</li>
+</ul>
+
+        <h3 id="消息（message）"   >
+          <a href="#消息（message）" class="heading-link"><i class="fas fa-link"></i></a><a href="#消息（message）" class="headerlink" title="消息（message）"></a>消息（message）</h3>
+      <ul>
+<li>消息 id</li>
+<li>发消息者（用户id） from_id</li>
+<li>收消息者（用户id） to_id</li>
+<li>会话id conversation_id</li>
+<li>消息内容 content</li>
+<li>消息状态 status（0-未读;1-已读;2-删除）</li>
+<li>创建时间 create_time</li>
+</ul>
+
+        <h2 id="编码"   >
+          <a href="#编码" class="heading-link"><i class="fas fa-link"></i></a><a href="#编码" class="headerlink" title="编码"></a>编码</h2>
+      
+        <h3 id="分层思想"   >
+          <a href="#分层思想" class="heading-link"><i class="fas fa-link"></i></a><a href="#分层思想" class="headerlink" title="分层思想"></a>分层思想</h3>
+      <p>项目中使用了 Spring MVC 框架，该框架在一个网络中起到了关键的作用。当客户端发出一个请求，服务器就可以根据不同的请求路径响应不同的内容。</p>
+
+        <h4 id="三层架构"   >
+          <a href="#三层架构" class="heading-link"><i class="fas fa-link"></i></a><a href="#三层架构" class="headerlink" title="三层架构"></a>三层架构</h4>
+      <p>三层架构就是将整个业务应用分为视图层、业务逻辑层、数据访问层，采用三层架构是为了实现“高内聚、低耦合”。</p>
+<ul>
+<li>视图层（表现层）：直接展示给用户的界面，也就是一个用户使用系统时的所见所得。</li>
+<li>业务逻辑层：实现具体的业务功能，需要和上下两层打交道。</li>
+<li>数据访问层：直接访问、操作数据库，进行增删改查。</li>
+</ul>
+<p>由于每层只和相邻层打交道，当一层出现变化，只要接口不变化，就不会影响到其他层。所以分层之后项目灵活性提高了，更适合团队协作。</p>
+<p>在项目代码中，我们一般约定把包名叫做controller、service、dao。</p>
+
+        <h4 id="MVC"   >
+          <a href="#MVC" class="heading-link"><i class="fas fa-link"></i></a><a href="#MVC" class="headerlink" title="MVC"></a>MVC</h4>
+      <p>MVC，即Model-View-Controller。</p>
+<p><img src="https://raw.githubusercontent.com/Estiv8/Images/main/MVC%E6%9E%B6%E6%9E%84.png"></p>
+<p>由此可见：</p>
+<ul>
+<li>Model：实现核心功能，管理数据变化。</li>
+<li>View：真正展示给用户的，用户可以看到的内容。</li>
+<li>Controller：对用户的输入作出反应，并作为视图和模型连接的桥梁。</li>
+</ul>
+
+        <h4 id="三层架构和MVC的关系"   >
+          <a href="#三层架构和MVC的关系" class="heading-link"><i class="fas fa-link"></i></a><a href="#三层架构和MVC的关系" class="headerlink" title="三层架构和MVC的关系"></a>三层架构和MVC的关系</h4>
+      <p>MVC构成了三层架构中的表现层，也就是把三层架构中的表现层进一步解耦，再分成三个模块。事实上，他们共同存在于一个项目中。</p>
+<p>三层架构按照业务逻辑分成了清晰的、具有上下级关系的层级（只有相邻层级打交道），而MVC并不是分层，只是分成了三个功能模块，协作完成了整个视图层的功能。所以，一个是项目架构模式，一个是表现的形式，并没有可比性。</p>
+
+        <h4 id="Spring-MVC"   >
+          <a href="#Spring-MVC" class="heading-link"><i class="fas fa-link"></i></a><a href="#Spring-MVC" class="headerlink" title="Spring MVC"></a>Spring MVC</h4>
+      <p>Spring MVC就是基于MVC形式，封装的表现层框架。如果发送请求，并在对应的 Controller 类里的方法打上断点跟踪代码执行，可以得到这样的流程图。中间的 DispatcherServlet 是 Spring MVC 最核心的组件。</p>
+<p><img src="https://raw.githubusercontent.com/Estiv8/Images/main/Spring%20MVC%E6%9E%B6%E6%9E%84.png"></p>
+<p>如果定义了拦截器，那么重写的方法也分别会在图中几处调用。</p>
+
+        <h4 id="Mybatis"   >
+          <a href="#Mybatis" class="heading-link"><i class="fas fa-link"></i></a><a href="#Mybatis" class="headerlink" title="Mybatis"></a>Mybatis</h4>
+      <p>Mybatis 是数据访问层框架，直接和数据库进行交互。根据约定，我们把访问数据库操作的接口写在 dao 包下，对应的 SQL 语句可以写在 xml 文件或者注解里，我感觉写在 xml 文件中更好，因为接口类应该只用来定义所有接口。</p>
+
+        <h4 id="Spring-Security"   >
+          <a href="#Spring-Security" class="heading-link"><i class="fas fa-link"></i></a><a href="#Spring-Security" class="headerlink" title="Spring Security"></a>Spring Security</h4>
+      <p>从名字就可以看出，这个框架用于提高项目安全性。项目的安全性表现在认证和授权（权限控制）。</p>
+<p>首先，用户不登录也是可以访问主页的，可以浏览首页的帖子、排行榜、搜索。如果要进行修改个人信息，或者发帖等操作，必须先登录。另外，在没有做任何安全校验之前，任何操作只要知道对应的 url 路径，用户都可以直接输入路径进行访问。 另外，不同的用户身份不同，拥有的权限也不同。例如，项目后台有统计UV、DAU等数据，应该只有管理员可以访问这一功能的权限。所以，引入该框架后，我们可以对于什么时候需要登录认证个人身份、不同身份可以做什么事情进行配置。</p>
 </div><footer class="post-footer"><div class="post-ending ending"><div class="ending__text">------ END ------</div></div><div class="post-tags"><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="http://example.com/tags/%E9%A1%B9%E7%9B%AE/">项目</a></span><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="http://example.com/tags/Java/">Java</a></span></div><nav class="post-paginator paginator"><div class="paginator-next"><a class="paginator-next__link" href="/2022/04/05/%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%81%9A%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/"><span class="paginator-prev__text">为什么要做一个博客</span><span class="paginator-next__icon"><i class="fas fa-angle-right"></i></span></a></div></nav></footer></div></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><div class="sidebar-nav"><span class="sidebar-nav-toc current">Catalog</span><span class="sidebar-nav-ov">Overview</span></div><section class="sidebar-toc"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.</span> <span class="toc-text">
           项目介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E4%BD%93%E8%AE%BE%E8%AE%A1"><span class="toc-number">2.</span> <span class="toc-text">
           实体设计</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%EF%BC%88user%EF%BC%89"><span class="toc-number">2.1.</span> <span class="toc-text">
           用户（user）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%96%E5%AD%90%EF%BC%88discuss-post%EF%BC%89"><span class="toc-number">2.2.</span> <span class="toc-text">
-          帖子（discuss_post）</span></a></li></ol></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="https://raw.githubusercontent.com/Estiv8/Images/main/20220324002302.png" alt="avatar"></div><p class="sidebar-ov-author__text">贪安稳就没有自由，要自由就要历些危险。只有这两条路。</p></div><div class="sidebar-ov-social"><a class="sidebar-ov-social-item" href="https://github.com/Estiv8" target="_blank" rel="noopener" data-popover="Github" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-github"></i></span></a><a class="sidebar-ov-social-item" href="https://twitter.com/0827es" target="_blank" rel="noopener" data-popover="Twitter" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-twitter"></i></span></a></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">5</div><div class="sidebar-ov-state-item__name">Archives</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--categories" href="/categories/"><div class="sidebar-ov-state-item__count">3</div><div class="sidebar-ov-state-item__name">Categories</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--tags" href="/tags/"><div class="sidebar-ov-state-item__count">4</div><div class="sidebar-ov-state-item__name">Tags</div></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">You have read </span><span class="sidebar-reading-info__num">0</span><span class="sidebar-reading-info__perc">%</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2022</span><span class="footer__devider"></span><span>Estiv8</span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><div class="search-mask"></div><div class="search-popup"><span class="search-close"></span><div class="search-input"><input placeholder="Search for Posts (Support multiple keywords)"></div><div class="search-results"></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script>function initSearch() {
+          帖子（discuss_post）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%84%E8%AE%BA%EF%BC%88comment%EF%BC%89"><span class="toc-number">2.3.</span> <span class="toc-text">
+          评论（comment）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B6%88%E6%81%AF%EF%BC%88message%EF%BC%89"><span class="toc-number">2.4.</span> <span class="toc-text">
+          消息（message）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%96%E7%A0%81"><span class="toc-number">3.</span> <span class="toc-text">
+          编码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E5%B1%82%E6%80%9D%E6%83%B3"><span class="toc-number">3.1.</span> <span class="toc-text">
+          分层思想</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%89%E5%B1%82%E6%9E%B6%E6%9E%84"><span class="toc-number">3.1.1.</span> <span class="toc-text">
+          三层架构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#MVC"><span class="toc-number">3.1.2.</span> <span class="toc-text">
+          MVC</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%89%E5%B1%82%E6%9E%B6%E6%9E%84%E5%92%8CMVC%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-number">3.1.3.</span> <span class="toc-text">
+          三层架构和MVC的关系</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Spring-MVC"><span class="toc-number">3.1.4.</span> <span class="toc-text">
+          Spring MVC</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Mybatis"><span class="toc-number">3.1.5.</span> <span class="toc-text">
+          Mybatis</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Spring-Security"><span class="toc-number">3.1.6.</span> <span class="toc-text">
+          Spring Security</span></a></li></ol></li></ol></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="https://raw.githubusercontent.com/Estiv8/Images/main/20220324002302.png" alt="avatar"></div><p class="sidebar-ov-author__text">贪安稳就没有自由，要自由就要历些危险。只有这两条路。</p></div><div class="sidebar-ov-social"><a class="sidebar-ov-social-item" href="https://github.com/Estiv8" target="_blank" rel="noopener" data-popover="Github" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-github"></i></span></a><a class="sidebar-ov-social-item" href="https://twitter.com/0827es" target="_blank" rel="noopener" data-popover="Twitter" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-twitter"></i></span></a></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">5</div><div class="sidebar-ov-state-item__name">Archives</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--categories" href="/categories/"><div class="sidebar-ov-state-item__count">3</div><div class="sidebar-ov-state-item__name">Categories</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--tags" href="/tags/"><div class="sidebar-ov-state-item__count">4</div><div class="sidebar-ov-state-item__name">Tags</div></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">You have read </span><span class="sidebar-reading-info__num">0</span><span class="sidebar-reading-info__perc">%</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2022</span><span class="footer__devider"></span><span>Estiv8</span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><div class="search-mask"></div><div class="search-popup"><span class="search-close"></span><div class="search-input"><input placeholder="Search for Posts (Support multiple keywords)"></div><div class="search-results"></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script>function initSearch() {
   var isXML = true;
   var search_path = 'search.json';
 
